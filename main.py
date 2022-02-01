@@ -12,21 +12,10 @@ bot = commands.Bot(command_prefix='.')
 
 api = OpenseaAPI(apikey='')
 
-
-url = "https://api.opensea.io/api/v1/collection/doodles-official/stats"
-
-
-
 @bot.event
 async def on_ready():
 
     print(f'{bot.user} has connected to Discord')
-
-'''@bot.command()
-async def nft(ctx):
-    embed = discord.Embed(title=result['collection']['name'], description='desc', color=0x00ff00)
-    embed.set_image(url=result['collection']['image_url'])
-    await ctx.channel.send(embed=embed)'''
 
 @tasks.loop(minutes=5)
 async def get_results(ctx):
